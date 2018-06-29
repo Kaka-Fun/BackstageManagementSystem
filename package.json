@@ -1,0 +1,8 @@
+{
+  "name": "BackstageSystem",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Kaka-Fun/BackstageSystem.git",
+  "author": "Wyatt <wyatt16596@163.com>",
+  "license": "MIT"
+}
