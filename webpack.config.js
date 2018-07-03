@@ -17,7 +17,7 @@ module.exports = {
     },
     module: {
     rules: [
-        // 处理react文件
+        // 处理react(jsx)语法处理
         {
             test: /\.jsx$/,
             exclude: /(node_modules)/,

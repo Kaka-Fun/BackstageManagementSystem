@@ -2,8 +2,9 @@
  * @Author: wyatt 
  * @Date: 2018-06-29 10:38:21 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-06-29 16:47:07
+ * @Last Modified time: 2018-07-03 22:19:31
  */
+
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -17,4 +18,3 @@ ReactDOM.render(
     </div>,
     document.getElementById('app')
 );
- 
