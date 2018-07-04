@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-06-29 10:35:42 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-06-29 16:52:49
+ * @Last Modified time: 2018-07-04 08:45:08
  */
 const path = require('path');
 const webpack = require('webpack');
@@ -80,7 +80,7 @@ module.exports = {
         }),
         // 独立css文件
         new ExtractTextPlugin("css/[name].css"),
-        // 提出公告模块
+        // 提出公共模块
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'js/base.js'
