@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-06-29 10:38:21 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-05 14:28:13
+ * @Last Modified time: 2018-07-10 15:36:04
  */
 
 
@@ -12,20 +12,31 @@ import { BrowserRouter as Router, Redirect, Switch, Route, Link} from 'react-rou
 
 import Layout from 'component/Layout/index.jsx'
 import Home from 'page/home/index.jsx'
+import Login from 'page/login/index.jsx';
+import ErrorPage from 'page/error/index.jsx';
+import UserList from 'page/user/index.jsx';
 
 class App extends React.Component{
 	render(){
+		let LayoutRouter = (
+            <Layout>
+				<Switch>
+					<Route exact path="/" component={Home}/>
+					<Route  path="/product" component={Home}/>
+					<Route  path="/product-category" component={Home}/>
+					<Route  path="/order" component={Home}/>
+					<Route  path="/user/index" component={UserList}/>
+					<Redirect exact from="/user" to="user/index"/>
+					<Route  component={ErrorPage}/>
+				</Switch>
+			</Layout>
+		)
 		return (
 			<Router>
-				<Layout>
-					<Switch>
-						<Route exact path="/" component={Home}/>
-						<Route  path="/product" component={Home}/>
-						<Route  path="/product-category" component={Home}/>
-						<Route  path="/order" component={Home}/>
-						<Route  path="/user" component={Home}/>
-					</Switch>
-				</Layout>
+				<Switch>
+					<Route path="/login" component={Login}/>
+					<Route path="/" render={(props)=>LayoutRouter}/>
+				</Switch>
 			</Router>
 		)
 	}

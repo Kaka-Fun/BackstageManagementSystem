@@ -50,7 +50,6 @@ h4 {
 p {
 	font-size: 16px;
 	line-height: 25px;
-	padding-top: 20px;
 }
 
 .navbar-side {
@@ -265,7 +264,7 @@ p {
 }
 
 .green {
-/* background-color: #1CC09F; */
+	background-color: #1CC09F;
 	color: #fff;
 }
 

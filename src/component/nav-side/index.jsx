@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-07-05 21:22:47 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-05 22:22:41
+ * @Last Modified time: 2018-07-10 10:20:09
  */
 
 import React from 'react'
@@ -22,7 +22,7 @@ export default class NavSide extends React.Component{
                         </li>
                         <li className="active">
                             <Link to="/product">
-                                <i className="fa fa-sitemap"></i> 
+                                <i className="fa fa-list"></i> 
                                 <span>商品</span>
                                 <span className="fa arrow"></span>
                             </Link>
@@ -37,7 +37,7 @@ export default class NavSide extends React.Component{
                         </li>
                         <li className="active">
                             <Link to="/order">
-                                <i className="fa fa-sitemap"></i> 
+                                <i className="fa fa-check-square-o"></i> 
                                 <span>订单</span>
                                 <span className="fa arrow"></span>
                             </Link>
@@ -49,7 +49,7 @@ export default class NavSide extends React.Component{
                         </li>
                         <li className="active">
                             <Link to="/user">
-                                <i className="fa fa-sitemap"></i> 
+                                <i className="fa fa-user-o"></i> 
                                 <span>用户</span>
                                 <span className="fa arrow"></span>
                             </Link>

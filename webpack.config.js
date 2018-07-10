@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-06-29 10:35:42 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-09 14:28:19
+ * @Last Modified time: 2018-07-09 23:30:06
  */
 const path = require('path');
 const webpack = require('webpack');
@@ -19,7 +19,9 @@ module.exports = {
         //设置目录别名
         alias: {
             page: path.resolve(__dirname, 'src/page'),
-            component: path.resolve(__dirname, 'src/component')
+            component: path.resolve(__dirname, 'src/component'),
+            util: path.resolve(__dirname, 'src/util'),
+            service: path.resolve(__dirname, 'src/service')
         }
     },
     module: {
@@ -100,6 +102,17 @@ module.exports = {
         port: 8086,
         historyApiFallback: {
             index: '/dist/index.html'
+        },
+        // 请求代理，解决跨域问题
+        proxy: {
+            '/manage': {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true
+            },
+            '/user/logout.do': {
+                target: 'http://admintest.happymmall.com',
+                changeOrigin: true
+            }
         }
 
     }
