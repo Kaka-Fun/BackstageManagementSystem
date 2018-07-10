@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-07-09 20:50:38 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-10 16:57:47
+ * @Last Modified time: 2018-07-10 17:06:55
  */
 import MUtil from 'util/mm.jsx'
 const _mm = new MUtil();
@@ -50,7 +50,7 @@ export default class User{
     getUserList(pageNum){
         return _mm.request({
             type: 'post',
-            url : '/manage/user/list1.do',
+            url : '/manage/user/list.do',
             data: {
                 pageNum: pageNum
             }
