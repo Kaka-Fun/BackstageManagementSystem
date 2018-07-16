@@ -2,11 +2,12 @@
  * @Author: wyatt 
  * @Date: 2018-07-05 14:22:05 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-05 21:25:17
+ * @Last Modified time: 2018-07-12 14:11:22
  */
 
 import React from 'react'
 import './theme.css'
+import './index.scss'
 import NavTop from 'component/nav-top/index.jsx'
 import NavSide from 'component/nav-side/index.jsx'
 

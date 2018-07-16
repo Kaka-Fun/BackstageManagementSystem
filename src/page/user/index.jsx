@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-07-10 15:28:54 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-10 16:59:41
+ * @Last Modified time: 2018-07-11 14:02:59
  */
 
 
@@ -10,6 +10,7 @@ import React from 'react';
 import PageTitle from 'component/page-title/index.jsx';
 import { Link } from 'react-router-dom'
 import Pagination from 'util/pagination/index.jsx'
+import TableList from 'util/table-list/index.jsx'
 import User from 'service/user-service.jsx'
 import MUtil from 'util/mm.jsx'
 const _mm = new MUtil();
@@ -22,7 +23,6 @@ export default class UserList extends React.Component{
         this.state={
             pageNum: 1,
             list: [],
-            firstLoading: true,
         }
     }
     componentDidMount(){
@@ -30,11 +30,7 @@ export default class UserList extends React.Component{
     }
     loadUserList(){
         _user.getUserList(this.state.pageNum).then((res)=>{
-            this.setState(res, ()=>{
-                this.setState({
-                    firstLoading: false
-                })
-            })
+            this.setState(res)
         }, (errMsg)=>{
             this.setState({
                 list: []
@@ -50,53 +46,29 @@ export default class UserList extends React.Component{
         })
     }
     render(){
-        let listBody = (
-            this.state.list.map((user, index) => {
-                return(
-                    <tr key={index}>
-                        <td>{user.id}</td>
-                        <td>{user.username}</td>
-                        <td>{user.email}</td>
-                        <td>{user.phone}</td>
-                        <td>{new Date(user.createTime).toLocaleString()}</td>
-                    </tr>
-                )
-            })
-        )
-        let listError = (
-            <tr>
-                <td className="text-center" colSpan="5">
-                    {this.state.firstLoading ? '数据加载中... ' : '没有找到相应结果'}
-                </td>
-            </tr>
-        )
-        let tableBody = this.state.list.length > 0 ? listBody : listError
         return(
             <div id="page-wrapper">
                 <PageTitle title="用户列表"/>
-                <div className="row">
-                    <div className="col-md-12">
-                        <table className="table table-striped table-bordered table-hover table-condensed">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>用户名</th>
-                                    <th>邮箱</th>
-                                    <th>电话</th>
-                                    <th>注册时间</th>
+                <TableList tableHeads={['ID', '用户名', '邮箱', '电话', '注册时间']}>
+                    {
+                        this.state.list.map((user, index) => {
+                            return(
+                                <tr key={index}>
+                                    <td>{user.id}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.phone}</td>
+                                    <td>{new Date(user.createTime).toLocaleString()}</td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {tableBody}
-                            </tbody>
-                        </table>
-                        <Pagination 
-                            current={this.state.pageNum} 
-                            total={this.state.total}  
-                            onChange={(pageNum)=>this.onPageNumChange(pageNum)}
-                            />
-                    </div>
-                </div>
+                            )
+                        })
+                    }
+                </TableList>
+                <Pagination 
+                    current={this.state.pageNum} 
+                    total={this.state.total}  
+                    onChange={(pageNum)=>this.onPageNumChange(pageNum)}
+                    />
             </div>
         )
     }

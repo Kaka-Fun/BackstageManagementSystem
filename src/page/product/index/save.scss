@@ -1,0 +1,48 @@
+/*
+ * @Author: wyatt 
+ * @Date: 2018-07-12 21:28:26 
+ * @Last Modified by: wyatt
+ * @Last Modified time: 2018-07-12 21:56:15
+ */
+
+
+$sub-img-size: 80px;
+.img-con{
+    position: relative;
+    height: $sub-img-size;
+    width: $sub-img-size;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid #cccccc;
+    .img{
+        height: 100%;
+        width: 100%;
+        display: block;
+    }
+    .fa-close{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        height: $sub-img-size;
+        line-height: $sub-img-size;
+        cursor: pointer;
+        display: none;
+        font-size: 50px;
+        color: #aaaaaa;
+        background: rgba(0, 0, 0, .2)
+        
+    }
+    &:hover{
+        .fa-close{
+            display: block;
+        }
+    }
+}
+
+.file-upload-con{
+    margin-top: 15px;
+}
+

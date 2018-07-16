@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-07-09 14:30:14 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-10 15:36:54
+ * @Last Modified time: 2018-07-11 12:39:18
  */
 
 export default class MUtil{
@@ -39,8 +39,12 @@ export default class MUtil{
         let queryString = window.location.search.split('?')[1] || '',
             reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
             result = queryString.match(reg)
-        return result ? encodeURIComponent(result[2]) : null
+        return result ? decodeURIComponent(result[2]) : null
 
+    }
+    // 成功提示
+    successTips(successMsg){
+        alert(successMsg || '操作成功！')
     }
     // 错误提示
     errorTips(errMsg){
