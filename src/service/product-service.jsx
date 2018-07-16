@@ -2,7 +2,7 @@
  * @Author: wyatt 
  * @Date: 2018-07-10 23:30:22 
  * @Last Modified by: wyatt
- * @Last Modified time: 2018-07-13 00:15:40
+ * @Last Modified time: 2018-07-17 00:10:10
  */
 
 
@@ -99,6 +99,7 @@ export default class Product{
     }
 
     // 品类相关
+    // 根据父品类id获取品类列表 
     getCatrgoryList(parentCategoryId){
         return _mm.request({
             type: 'post',
@@ -106,6 +107,22 @@ export default class Product{
             data: {
                 categoryId: parentCategoryId || 0
             }
+        })
+    }
+    // 更新品类名字
+    updateCategoryName(category){
+        return _mm.request({
+            type: 'post',
+            url : '/manage/category/set_category_name.do',
+            data: category
+        })
+    }
+    // 新增品类
+    saveCategory(category){
+        return _mm.request({
+            type: 'post',
+            url : '/manage/category/add_category.do',
+            data: category
         })
     }
 }
