@@ -75,13 +75,14 @@ export default class CategoryList extends React.Component{
     render(){
         return(
             <div id="page-wrapper">
-                <PageTitle title="品类列表"/>
-                <div className="page-header-right">
-                    <Link to="/product-category/add" className="btn btn-primary">
-                        <i className="fa fa-plus"></i>
-                        <span>添加品类</span>
-                    </Link>
-                </div>
+                <PageTitle title="品类列表" >
+                    <div className="page-header-right">
+                        <Link to="/product-category/add" className="btn btn-primary">
+                            <i className="fa fa-plus"></i>
+                            <span>添加品类</span>
+                        </Link>
+                    </div>
+                </PageTitle>
                 <div className="row">
                     <div className="col-md-12">
                         <p>父品类ID：{this.state.parentCategoryId}</p>
